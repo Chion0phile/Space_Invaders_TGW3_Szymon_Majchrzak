@@ -19,9 +19,15 @@ public class EnemyChildren : MonoBehaviour
     {
         if(collision.tag == "Bullet")
         {
+            GameManager.ScoreUp = true;
+            GameManager.ScoreAmount += 10;
             Destroy(gameObject);
         }
         if(collision.tag == "Shield")
+        {
+            GameManager.EndGame = true;
+        }
+        if(collision.tag == "Player")
         {
             GameManager.EndGame = true;
         }

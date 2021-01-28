@@ -5,14 +5,19 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public GameManager GameManager;
-    public float Speed;
+    private float Speed;
     private int Direction = 1;
     public GameObject RightCheck;
     public GameObject LeftCheck;
     private bool Down = false;
     public float DownMove;
+    private void Start()
+    {
+        Speed = PlayerPrefs.GetFloat("EnemySpeed");
+    }
     void FixedUpdate()
     {
+        //Speed = PlayerPrefs.GetFloat("EnemySpeed");
         if (RightCheck.transform.position.x > 4)
         {
             Direction = -1;

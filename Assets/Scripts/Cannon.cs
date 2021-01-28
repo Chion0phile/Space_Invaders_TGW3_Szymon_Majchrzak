@@ -9,6 +9,7 @@ public class Cannon : MonoBehaviour
     public GameObject Bullet;
     public float Cooldown;
     private float Ready;
+    public AudioSource AudioSource;
     void Update()
     {
         if (Time.time > Ready)
@@ -23,6 +24,7 @@ public class Cannon : MonoBehaviour
     void Shoot()
     {
         Instantiate(Bullet, Barrel.position, Barrel.rotation);
+        AudioSource.Play();
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
